@@ -16,7 +16,7 @@ app.get('/key-info',(req,res) => {
     const result = backend.keyInfo()
     result.then(val => res.render('keyInfo',{plan: val.data.plan}))
     // result.then((value)=> res.render('keyInfo',{ keyInfo: value }))
-  } catch (err) {
+  } catch (error) {
     res.render('err')
   }
 
@@ -27,6 +27,33 @@ app.get('/crypto-currency', (req,res) => {
     const result = backend.cryptoCurrency()
     result.then(val => res.render('cryptoCurrency',{currencies: val.data}))
   } catch (err) {
+    res.render('err')
+  }
+})
+
+app.get('/coin-gecko-ping',(req,res) => {
+  try {
+    const result = backend.pingCoinGecko()
+    result.then(val => res.render('coin-gecko-ping',{data: val.data}))
+  } catch (error) {
+    res.render('err')
+  }
+})
+
+app.get('/coin-gecko-all-coins',(req,res) => {
+  try {
+    const result = backend.allCoinsCoinGecko()
+    result.then(val => res.render('coin-gecko-ping',{data: val.data}))
+  } catch (error) {
+    res.render('err')
+  }
+})
+
+app.get('/coin-gecko-coins-markets',(req,res) => {
+  try {
+    const result = backend.coinsMarketsCoinGecko()
+    result.then(val => res.render('coin-gecko-ping',{data: val.data}))
+  } catch (error) {
     res.render('err')
   }
 })
