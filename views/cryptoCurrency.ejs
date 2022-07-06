@@ -1,6 +1,11 @@
 <h1>Crypto currencies</h1>
-<select name="currencies" id="currencies">
+<% for( let index = 0; index < currencies.length; index++ ) { %>
+  <div style="white-space: pre;">
+    <%= JSON.stringify(currencies[index]).replace(/,/g,'\n') %> 
+  </div>
+<% } %>
+<!-- <select name="currencies" id="currencies">
   <% for( let index = 0; index < currencies.length; index++ ) { %>
     <option value="<%= currencies[index].id %>"><%= currencies[index].name %></option>
-  <% } %>
-</select>
+  <% } %> -->
+<!-- </select> -->

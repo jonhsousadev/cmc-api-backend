@@ -1,2 +1,6 @@
 <h1>Coin Gecko Ping Result</h1>
-<%= JSON.stringify(data) %> 
+<% for( let index = 0; index < data.length; index++ ) { %>
+  <div style="white-space: pre;">
+    <%= JSON.stringify(data[index]).replace(/,/g,'\n') %> 
+  </div>
+<% } %>
